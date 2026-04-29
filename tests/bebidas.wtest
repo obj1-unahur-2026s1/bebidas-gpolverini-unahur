@@ -1,0 +1,63 @@
+import src.bebidas.*
+
+describe "Whisky | Verificar rendimiento" {
+    test "Given: whisky con 1 cc | When: consultamos rendimiento(1) | Then: debería retornar 0.9" {
+        assert.equals(0.9, whisky.rendimiento(1))
+    }
+
+    test "Given: whisky con 2 cc | When: consultamos rendimiento(2) | Then: debería retornar 0.81" {
+        assert.equals(0.81, whisky.rendimiento(2))
+    }
+
+    test "Given: whisky con 3 cc | When: consultamos rendimiento(3) | Then: debería retornar 0.729" {
+        assert.equals(0.729, whisky.rendimiento(3))
+    }
+
+    test "Given: whisky con 5 cc | When: consultamos rendimiento(5) | Then: debería ser menor a 0.6" {
+        assert.that(whisky.rendimiento(5) < 0.6)
+    }
+}
+
+describe "Tereré | Verificar rendimiento" {
+    test "Given: tereré con 0 cc | When: consultamos rendimiento(0) | Then: debería retornar 1 (mínimo)" {
+        assert.equals(1, terere.rendimiento(0))
+    }
+
+    test "Given: tereré con 1 cc | When: consultamos rendimiento(1) | Then: debería retornar 1 (mínimo aplicado)" {
+        assert.equals(1, terere.rendimiento(1))
+    }
+
+    test "Given: tereré con 5 cc | When: consultamos rendimiento(5) | Then: debería retornar 1 (mínimo aplicado)" {
+        assert.equals(1, terere.rendimiento(5))
+    }
+
+    test "Given: tereré con 10 cc | When: consultamos rendimiento(10) | Then: debería retornar 1 (0.1 * 10)" {
+        assert.equals(1, terere.rendimiento(10))
+    }
+
+    test "Given: tereré con 20 cc | When: consultamos rendimiento(20) | Then: debería retornar 2" {
+        assert.equals(2, terere.rendimiento(20))
+    }
+
+    test "Given: tereré con 50 cc | When: consultamos rendimiento(50) | Then: debería retornar 5" {
+        assert.equals(5, terere.rendimiento(50))
+    }
+}
+
+describe "Cianuro | Verificar rendimiento" {
+    test "Given: cianuro con 0 cc | When: consultamos rendimiento(0) | Then: debería retornar 0" {
+        assert.equals(0, cianuro.rendimiento(0))
+    }
+
+    test "Given: cianuro con 1 cc | When: consultamos rendimiento(1) | Then: debería retornar 0" {
+        assert.equals(0, cianuro.rendimiento(1))
+    }
+
+    test "Given: cianuro con 50 cc | When: consultamos rendimiento(50) | Then: debería retornar 0" {
+        assert.equals(0, cianuro.rendimiento(50))
+    }
+
+    test "Given: cianuro con 100 cc | When: consultamos rendimiento(100) | Then: debería retornar 0" {
+        assert.equals(0, cianuro.rendimiento(100))
+    }
+}
